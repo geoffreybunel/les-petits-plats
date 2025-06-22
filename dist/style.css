@@ -14,7 +14,6 @@
     --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-primary: #FFD15B;
     --color-tertiary: #C6C6C6;
   }
 }
@@ -177,6 +176,9 @@
   }
   .text-green-500 {
     color: var(--color-green-500);
+  }
+  .text-red-500 {
+    color: var(--color-red-500);
   }
   .underline {
     text-decoration-line: underline;
