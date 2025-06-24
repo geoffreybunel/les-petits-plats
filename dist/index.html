@@ -17,7 +17,7 @@
             <div class="relative z-10 flex flex-col items-center justify-center text-center h-full w-5xl">
                 <h1 class="font-title font-extrabold text-primary text-5xl tracking-wide leading-18">CHERCHEZ PARMI PLUS DE 1500 RECETTES <br> DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
                 <div class="mt-6 w-full flex relative">
-                    <input type="text" name="search" id="search" placeholder="Rechercher une recette, un ingrédient, ..." class="w-full bg-white outline-none p-4 rounded-xl text-tertiary text-lg font-content">
+                    <input type="text" name="search" id="search" placeholder="Rechercher une recette, un ingrédient, ..." class="w-full bg-white outline-none p-4 rounded-xl text-tertiary text-lg">
                     <button class="bg-secondary text-white p-4 rounded-xl hover:bg-primary hover:text-secondary absolute right-1 h-[52px] w-[52px] mt-1 mb-1">
                         <i class="fa-solid fa-magnifying-glass text-2xl"></i>
                     </button>
@@ -26,33 +26,65 @@
         </header>
 
         <!-- Main content -->
-        <main class="bg-tertiary-light px-25 py-5 h-full w-full">
+        <main class="bg-background px-25 py-5 h-full w-full">
+            <!-- filters -->
             <section class="flex justify-between items-center h-14">
-                <!-- filters -->
-                <div class="flex justify-around w-2/3 h-full font-title">
+                <div class="flex justify-between w-2/3 h-full">
                     <!-- ingredients -->
-                    <button id="filterDropdown" class="flex justify-between items-center w-52 px-5 rounded-xl bg-white">
-                        <span class="font-content">Ingrédients</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
+                    <div class="w-52">
+                        <button id="filterToggleDropdown" class="flex justify-between items-center h-full w-full px-5 rounded-xl bg-white">
+                            <span>Ingrédients</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+
+                        <div id="filterDropdown" class="bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
+                            <div>
+                                <input type="text" id="searchInput" placeholder="Rechercher un ingrédient" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
+                            </div>
+
+                            <ul id="ingredientsList" class="max-h-64 overflow-y-auto mt-2"></ul>
+                        </div>
+                    </div>
 
                     <!-- Equipment -->
-                    <button id="filterDropdown" class="flex justify-between items-center w-52 px-5 rounded-xl bg-white">
-                        <span class="font-content">Appareils</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
+                    <div>
+                        <button id="filterDropdown" class="flex justify-between items-center h-full w-52 px-5 rounded-xl bg-white">
+                            <span>Appareils</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+
+                        <div id="filterDropdown" class="bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
+                            <div>
+                                <input type="text" id="searchInput" placeholder="Rechercher un équipement" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
+                            </div>
+
+                            <ul id="equipmentList" class="max-h-64 overflow-y-auto mt-2"></ul>
+                        </div>
+                    </div>
 
                     <!-- Utensils -->
-                    <button id="filterDropdown" class="flex justify-between items-center w-52 px-5 rounded-xl bg-white">
-                        <span class="font-content">Ustensiles</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
+                    <div>
+                        <button id="filterDropdown" class="flex justify-between items-center h-full w-52 px-5 rounded-xl bg-white">
+                            <span>Ustensiles</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
 
+                        <div id="filterDropdown" class="bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
+                            <div>
+                                <input type="text" id="searchInput" placeholder="Rechercher un ustensile" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
+                            </div>
+
+                            <ul id="utensilsList" class="max-h-64 overflow-y-auto mt-2"></ul>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- total recipes displayed -->
                 <span class="font-title text-xl">50 recettes</span>
             </section>
+
+            <!-- Recipes -->
+            <section id="recipes-section" class="my-8"></section>
         </main>
     </body>
 </html>
