@@ -8,6 +8,7 @@
         <script src="https://kit.fontawesome.com/c498013e5e.js" crossorigin="anonymous"></script>
     </head>
     <body>
+        <!-- Hero -->
         <header class="bg-[url('../src/assets/images/Hero.jpg')] bg-cover bg-center max-h-[667px] h-[100vh] relative flex justify-center">
             <div class="max-w-[250px] top-10 left-10 absolute">
                 <img src="../src/assets/images/Logo-3.png" alt="Logo - Les petits plats" class="w-[100%]">
@@ -16,15 +17,42 @@
             <div class="relative z-10 flex flex-col items-center justify-center text-center h-full w-5xl">
                 <h1 class="font-title font-extrabold text-primary text-5xl tracking-wide leading-18">CHERCHEZ PARMI PLUS DE 1500 RECETTES <br> DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
                 <div class="mt-6 w-full flex relative">
-                    <input type="text" name="search" id="search" placeholder="Rechercher une recette, un ingrédient, ..." class="w-full bg-white outline-none p-4 rounded-xl text-tertiary text-lg">
+                    <input type="text" name="search" id="search" placeholder="Rechercher une recette, un ingrédient, ..." class="w-full bg-white outline-none p-4 rounded-xl text-tertiary text-lg font-content">
                     <button class="bg-secondary text-white p-4 rounded-xl hover:bg-primary hover:text-secondary absolute right-1 h-[52px] w-[52px] mt-1 mb-1">
                         <i class="fa-solid fa-magnifying-glass text-2xl"></i>
                     </button>
                 </div>
             </div>
         </header>
-        <body>
-            
-        </body>
+
+        <!-- Main content -->
+        <main class="bg-tertiary-light px-25 py-5 h-full w-full">
+            <section class="flex justify-between items-center h-14">
+                <!-- filters -->
+                <div class="flex justify-around w-2/3 h-full font-title">
+                    <!-- ingredients -->
+                    <button id="filterDropdown" class="flex justify-between items-center w-52 px-5 rounded-xl bg-white">
+                        <span class="font-content">Ingrédients</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <!-- Equipment -->
+                    <button id="filterDropdown" class="flex justify-between items-center w-52 px-5 rounded-xl bg-white">
+                        <span class="font-content">Appareils</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <!-- Utensils -->
+                    <button id="filterDropdown" class="flex justify-between items-center w-52 px-5 rounded-xl bg-white">
+                        <span class="font-content">Ustensiles</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                </div>
+
+                <!-- total recipes displayed -->
+                <span class="font-title text-xl">50 recettes</span>
+            </section>
+        </main>
     </body>
 </html>
