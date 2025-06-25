@@ -1,3 +1,3 @@
-import Home from 'pages/home.js';
+import Home from './pages/home.js';
 
 Home();

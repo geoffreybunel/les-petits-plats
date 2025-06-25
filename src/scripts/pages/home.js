@@ -1,5 +1,5 @@
-import {  } from '../components/filterDropdown.js';
+import { getAllRecipes } from '../../scripts/utils/dataManager.js';
 
 export default function Home() {
-
+    getAllRecipes()  
   }
