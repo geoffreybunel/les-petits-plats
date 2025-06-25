@@ -27,53 +27,51 @@
 
         <!-- Main content -->
         <main class="bg-background px-25 py-5 h-full w-full">
+            <h2>TO DO LIST - Filters</h2>
+            
+                <li>ouvrir / fermes la dropdown-menu</li>
+                <li>remplir dynamiquement le 'ul'</li>
+                <li>ajouter les tags au clic sur un élément</li>
+                <li>filtrer selon ce qui est tapé dans 'input'</li>
+            
             <!-- filters -->
             <section class="flex justify-between items-center h-14">
                 <div class="flex justify-between w-2/3 h-full">
                     <!-- ingredients -->
-                    <div class="w-52">
-                        <button id="filterToggleDropdown" class="flex justify-between items-center h-full w-full px-5 rounded-xl bg-white">
+                    <div class="dropdown w-52" data-type="ingredients">
+                        <button class="dropdown-toggle flex justify-between items-center h-full w-full px-5 rounded-xl bg-white">
                             <span>Ingrédients</span>
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div id="filterDropdown" class="bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
-                            <div>
-                                <input type="text" id="searchInput" placeholder="Rechercher un ingrédient" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
-                            </div>
-
+                        <div class="dropdown-menu bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
+                            <input type="text" id="searchInput" placeholder="Rechercher un ingrédient" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
                             <ul id="ingredientsList" class="max-h-64 overflow-y-auto mt-2"></ul>
                         </div>
                     </div>
 
                     <!-- Equipment -->
-                    <div>
-                        <button id="filterDropdown" class="flex justify-between items-center h-full w-52 px-5 rounded-xl bg-white">
+                    <div class="dropdown" data-type="equipment">
+                        <button class="dropdown-toggle flex justify-between items-center h-full w-52 px-5 rounded-xl bg-white">
                             <span>Appareils</span>
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div id="filterDropdown" class="bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
-                            <div>
-                                <input type="text" id="searchInput" placeholder="Rechercher un équipement" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
-                            </div>
-
+                        <div class="dropdown-menu bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
+                            <input type="text" id="searchInput" placeholder="Rechercher un équipement" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
                             <ul id="equipmentList" class="max-h-64 overflow-y-auto mt-2"></ul>
                         </div>
                     </div>
 
                     <!-- Utensils -->
-                    <div>
-                        <button id="filterDropdown" class="flex justify-between items-center h-full w-52 px-5 rounded-xl bg-white">
+                    <div class="dropdown" data-type="utensils">
+                        <button class="dropdown-toggle flex justify-between items-center h-full w-52 px-5 rounded-xl bg-white">
                             <span>Ustensiles</span>
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div id="filterDropdown" class="bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
-                            <div>
-                                <input type="text" id="searchInput" placeholder="Rechercher un ustensile" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
-                            </div>
-
+                        <div class="dropdown-menu bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
+                            <input type="text" id="searchInput" placeholder="Rechercher un ustensile" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
                             <ul id="utensilsList" class="max-h-64 overflow-y-auto mt-2"></ul>
                         </div>
                     </div>
