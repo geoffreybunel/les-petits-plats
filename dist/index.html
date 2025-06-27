@@ -14,7 +14,7 @@
                 <img src="../src/assets/images/Logo-3.png" alt="Logo - Les petits plats" class="w-[100%]">
             </div>
 
-            <div class="relative z-10 flex flex-col items-center justify-center text-center h-full w-5xl">
+            <div class="relative flex flex-col items-center justify-center text-center h-full w-5xl">
                 <h1 class="font-title font-extrabold text-primary text-5xl tracking-wide leading-18">CHERCHEZ PARMI PLUS DE 1500 RECETTES <br> DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
                 <div class="mt-6 w-full flex relative">
                     <input type="text" name="search" id="search" placeholder="Rechercher une recette, un ingrédient, ..." class="w-full bg-white outline-none p-4 rounded-xl text-tertiary text-lg">
@@ -32,7 +32,7 @@
             <li>filtrer selon ce qui est tapé dans 'input'</li>
             
             <!-- filters -->
-            <section class="flex justify-between items-center h-14">
+            <section class="relative z-10 flex justify-between items-center h-14 mb-14">
                 <div class="flex justify-between w-2/3 h-full">
                     <!-- ingredients -->
                     <div class="dropdown w-52" data-type="ingredients">
@@ -41,7 +41,7 @@
                             <i class="arrow fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div class="dropdown-menu bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
+                        <div class="dropdown-menu bg-white w-full rounded-xl mt-[-20px] p-3 hidden">
                             <input type="text" id="searchInput" placeholder="Rechercher un ingrédient" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
                             <ul id="ingredientsList" class="max-h-64 overflow-y-auto mt-2"></ul>
                         </div>
@@ -54,7 +54,7 @@
                             <i class="arrow fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div class="dropdown-menu bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
+                        <div class="dropdown-menu bg-white w-full rounded-xl mt-[-20px] p-3 hidden">
                             <input type="text" id="searchInput" placeholder="Rechercher un équipement" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
                             <ul id="applianceList" class="max-h-64 overflow-y-auto mt-2"></ul>
                         </div>
@@ -67,7 +67,7 @@
                             <i class="arrow fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div class="dropdown-menu bg-white z-10 w-full rounded-xl mt-[-20px] p-3 hidden">
+                        <div class="dropdown-menu bg-white w-full rounded-xl mt-[-20px] p-3 hidden">
                             <input type="text" id="searchInput" placeholder="Rechercher un ustensile" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
                             <ul id="ustensilsList" class="max-h-64 overflow-y-auto mt-2"></ul>
                         </div>
@@ -79,43 +79,7 @@
             </section>
 
             <!-- Recipes -->
-            <section id="recipes-section" class="my-8 grid grid-cols-3 gap-5">
-                <!-- <article class="rounded-xl h-full bg-white shadow-md overflow-hidden max-w-[380px] relative">
-                    <img src="../src/assets/images/recipes/Recette01.jpg" alt="Recette01" class="h-[253px] object-cover w-full">
-                    <span class="absolute z-10 bg-primary px-3 py-1.5 top-3 right-3 rounded-4xl w-16 text-xs">10min</span>
-
-                    <div class="p-5">
-                        <h3 class="font-title text-lg my-2.5">Titre de la recette</h3>
-                        
-                        <div class="my-7">
-                            <h4 class="text-xs tracking-wider font-medium text-tertiary uppercase">Recette</h4>
-                            <p class="text-sm mt-2.5">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
-                        </div>
-
-                        <div class="my-7">
-                            <h4 class="text-xs tracking-wider font-medium text-tertiary uppercase">Ingrédients</h4>
-                            <div class="grid grid-cols-2 gap-x-4 gap-y-2">
-                                <div class="text-sm mt-2.5">
-                                    <p>Lait de coco</p>
-                                    <p class="font-light text-tertiary">400ml</p>
-                                </div>
-                                <div class="text-sm mt-2.5">
-                                    <p>Lait de coco</p>
-                                    <p class="font-light text-tertiary">400ml</p>
-                                </div>
-                                <div class="text-sm mt-2.5">
-                                    <p>Lait de coco</p>
-                                    <p class="font-light text-tertiary">400ml</p>
-                                </div>
-                                <div class="text-sm mt-2.5">
-                                    <p>Lait de coco</p>
-                                    <p class="font-light text-tertiary">400ml</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article> -->
-            </section>
+            <section id="recipes-section" class="my-8 grid grid-cols-3 gap-5"></section>
         </main>
 
         <script type="module" src="../src/scripts/main.js"></script>
