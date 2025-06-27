@@ -54,6 +54,4 @@ export function displayLists() {
         li.classList.add('cursor-pointer', 'hover:bg-primary', 'p-2');
         ustensilsList.append(li);
     });
-
-    console.log(getAllUstensils())
 }
