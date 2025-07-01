@@ -26,7 +26,9 @@ export function displayLists() {
     const ingredientsList = document.getElementById('ingredientsList');
 
     const allIngredients = getAllIngredients();
-    allIngredients.forEach(ingredient => {
+    let sortedIngredients = allIngredients.sort();
+
+    sortedIngredients.forEach(ingredient => {
         const li = document.createElement('li');
         li.textContent = ingredient;
         li.classList.add('cursor-pointer', 'hover:bg-primary', 'p-2');
@@ -37,7 +39,9 @@ export function displayLists() {
     const applianceList = document.getElementById('applianceList');
 
     const allAppliances = getAllAppliance();
-    allAppliances.forEach(appliance => {
+    let sortedAppliance = allAppliances.sort();
+
+    sortedAppliance.forEach(appliance => {
         const li = document.createElement('li');
         li.textContent = appliance;
         li.classList.add('cursor-pointer', 'hover:bg-primary', 'p-2');
@@ -48,7 +52,9 @@ export function displayLists() {
     const ustensilsList = document.getElementById('ustensilsList');
 
     const allUstensils = getAllUstensils();
-    allUstensils.forEach(utensil => {
+    let sortedUstensils = allUstensils.sort();
+
+    sortedUstensils.forEach(utensil => {
         const li = document.createElement('li');
         li.textContent = utensil;
         li.classList.add('cursor-pointer', 'hover:bg-primary', 'p-2');
