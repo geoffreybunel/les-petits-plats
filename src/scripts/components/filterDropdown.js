@@ -31,7 +31,7 @@ export function displayLists() {
     sortedIngredients.forEach(ingredient => {
         const li = document.createElement('li');
         li.textContent = ingredient;
-        li.classList.add('cursor-pointer', 'hover:bg-primary', 'p-2');
+        li.classList.add('ingredients-item', 'cursor-pointer', 'hover:bg-primary', 'p-2');
         ingredientsList.append(li);
     });
 
@@ -44,7 +44,7 @@ export function displayLists() {
     sortedAppliance.forEach(appliance => {
         const li = document.createElement('li');
         li.textContent = appliance;
-        li.classList.add('cursor-pointer', 'hover:bg-primary', 'p-2');
+        li.classList.add('appliances-item', 'cursor-pointer', 'hover:bg-primary', 'p-2');
         applianceList.append(li);
     });
 
@@ -57,7 +57,7 @@ export function displayLists() {
     sortedUstensils.forEach(utensil => {
         const li = document.createElement('li');
         li.textContent = utensil;
-        li.classList.add('cursor-pointer', 'hover:bg-primary', 'p-2');
+        li.classList.add('ustensils-item', 'cursor-pointer', 'hover:bg-primary', 'p-2');
         ustensilsList.append(li);
     });
 }

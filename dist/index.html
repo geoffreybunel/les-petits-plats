@@ -35,41 +35,41 @@
             <section class="relative z-10 flex justify-between items-center h-14 mb-14">
                 <div class="flex justify-between w-2/3 h-full">
                     <!-- ingredients -->
-                    <div class="dropdown w-52" data-type="ingredients">
+                    <div class="dropdown w-52">
                         <button class="dropdown-toggle flex justify-between items-center h-full w-full px-5 rounded-xl bg-white">
                             <span>Ingrédients</span>
                             <i class="arrow fa-solid fa-chevron-down"></i>
                         </button>
 
                         <div class="dropdown-menu bg-white w-full rounded-xl mt-[-20px] p-3 hidden">
-                            <input type="text" id="searchInput" placeholder="Rechercher un ingrédient" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
-                            <ul id="ingredientsList" class="max-h-64 overflow-y-auto mt-2"></ul>
+                            <input type="text" placeholder="Rechercher un ingrédient" data-type="ingredients" class="filter-search-input text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
+                            <ul id="ingredientsList" class="filters-lists max-h-64 overflow-y-auto mt-2"></ul>
                         </div>
                     </div>
 
                     <!-- Appliance -->
-                    <div class="dropdown" data-type="appliance">
+                    <div class="dropdown">
                         <button class="dropdown-toggle flex justify-between items-center h-full w-52 px-5 rounded-xl bg-white">
                             <span>Appareils</span>
                             <i class="arrow fa-solid fa-chevron-down"></i>
                         </button>
 
                         <div class="dropdown-menu bg-white w-full rounded-xl mt-[-20px] p-3 hidden">
-                            <input type="text" id="searchInput" placeholder="Rechercher un équipement" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
-                            <ul id="applianceList" class="max-h-64 overflow-y-auto mt-2"></ul>
+                            <input type="text" placeholder="Rechercher un équipement" data-type="appliance" class="filter-search-input text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
+                            <ul id="applianceList" class="filters-lists max-h-64 overflow-y-auto mt-2"></ul>
                         </div>
                     </div>
 
                     <!-- Ustensils -->
-                    <div class="dropdown" data-type="ustensils">
+                    <div class="dropdown">
                         <button class="dropdown-toggle flex justify-between items-center h-full w-52 px-5 rounded-xl bg-white">
                             <span>Ustensiles</span>
                             <i class="arrow fa-solid fa-chevron-down"></i>
                         </button>
 
                         <div class="dropdown-menu bg-white w-full rounded-xl mt-[-20px] p-3 hidden">
-                            <input type="text" id="searchInput" placeholder="Rechercher un ustensile" class="text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
-                            <ul id="ustensilsList" class="max-h-64 overflow-y-auto mt-2"></ul>
+                            <input type="text" placeholder="Rechercher un ustensile" data-type="ustensils" class="filter-search-input text-xs text-tertiary w-full border border-tertiary outline-none px-2 py-1 p-2">
+                            <ul id="ustensilsList" class="filters-lists max-h-64 overflow-y-auto mt-2"></ul>
                         </div>
                     </div>
                 </div>
