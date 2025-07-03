@@ -39,5 +39,4 @@ filtersInput.forEach((input, index) => {
         input.value = "";
         input.dispatchEvent(new Event("input")); // restart filter
     });
-
 })
