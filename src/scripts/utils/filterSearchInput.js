@@ -1,14 +1,14 @@
 const filtersInput = document.querySelectorAll(".filter-search-input");
 const deleteIcon = document.querySelectorAll(".delete-icon");
 
-// filter the search if we write in input
 export function filterListItems(listElement, searchValue) {
     if (!listElement) {
         return;
       }
 
     const items = listElement.querySelectorAll("li");
-
+    
+    // filter the search
     items.forEach(item => {
         const text = item.textContent.toLowerCase();
         item.style.display = text.includes(searchValue) ? "" : "none";
@@ -30,6 +30,7 @@ filtersInput.forEach((input, index) => {
         icon.style.display = searchValue.length > 0 ? "" : "none";
         console.log("Filtrage:", type, list);
 
+        // filter the search
         filterListItems(list, searchValue);
     });
 

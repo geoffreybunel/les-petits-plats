@@ -29,10 +29,9 @@
         <main class="bg-background px-25 py-5 h-full w-full">
             <h2>TO DO LIST - Filters</h2>
             <li>ajouter les tags au clic sur un élément</li>
-            <li>filtrer selon ce qui est tapé dans 'input'</li>
             
             <!-- filters -->
-            <section class="relative z-10 flex justify-between items-center h-14 mb-14">
+            <section class="relative z-10 flex justify-between items-center h-14 mb-5">
                 <div class="flex justify-between w-2/3 h-full">
                     <!-- ingredients -->
                     <div class="dropdown w-52">
@@ -44,7 +43,7 @@
                         <div class="dropdown-menu bg-white w-full rounded-xl mt-[-20px] p-3 hidden">
                             <div class="relative">
                                 <input type="text" data-type="ingredients" class="filter-search-input text-xs text-tertiary w-full border border-tertiary-light rounded-sm outline-none px-2 py-1 p-2">
-                                <img src="../src/assets/icons/close.svg" alt="close icon" class="delete-icon absolute right-7 top-2.5"/>
+                                <img src="../src/assets/icons/deleteSearch.svg" alt="close icon" class="delete-icon absolute right-7 top-2.5"/>
                                 <img src="../src/assets/icons/Group 4.svg" alt="Search icon" class="absolute right-2 top-2"/>
                             </div>
                             <ul id="ingredientsList" class="filters-lists max-h-64 overflow-y-auto mt-2"></ul>
@@ -61,9 +60,9 @@
                         <div class="dropdown-menu bg-white w-full rounded-xl mt-[-20px] p-3 hidden">
                             <div class="relative">
                                 <input type="text" data-type="appliance" class="filter-search-input text-xs text-tertiary w-full border border-tertiary-light rounded-sm outline-none px-2 py-1 p-2">
-                                <img src="../src/assets/icons/close.svg" alt="close icon" class="delete-icon absolute right-7 top-2.5"/>
+                                <img src="../src/assets/icons/deleteSearch.svg" alt="close icon" class="delete-icon absolute right-7 top-2.5"/>
                                 <img src = "../src/assets/icons/Group 4.svg" alt="Search icon" class="absolute right-2 top-2"/>
-                            </div>
+                            </div> 
                             <ul id="applianceList" class="filters-lists max-h-64 overflow-y-auto mt-2"></ul>
                         </div>
                     </div>
@@ -78,7 +77,7 @@
                         <div class="dropdown-menu bg-white w-full rounded-xl mt-[-20px] p-3 hidden">
                             <div class="relative">
                                 <input type="text" data-type="ustensils" class="filter-search-input text-xs text-tertiary w-full border border-tertiary-light rounded-sm outline-none px-2 py-1 p-2">
-                                <img src="../src/assets/icons/close.svg" alt="close icon" class="delete-icon absolute right-7 top-2.5"/>
+                                <img src="../src/assets/icons/deleteSearch.svg" alt="close icon" class="delete-icon absolute right-7 top-2.5"/>
                                 <img src = "../src/assets/icons/Group 4.svg" alt="Search icon" class="absolute right-2 top-2"/>
                             </div>
                             <ul id="ustensilsList" class="filters-lists max-h-64 overflow-y-auto mt-2"></ul>
@@ -89,6 +88,9 @@
                 <!-- total recipes displayed -->
                 <span class="font-title text-xl">50 recettes</span>
             </section>
+
+            <!-- Tags -->
+            <section id="tags-section" class="flex flex-wrap gap-2 mb-4"></section>
 
             <!-- Recipes -->
             <section id="recipes-section" class="my-8 grid grid-cols-3 gap-5"></section>
