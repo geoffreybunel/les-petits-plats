@@ -1,5 +1,6 @@
+export const recipesSection = document.getElementById("recipes-section");
+
 export function displayRecipes(recipesList) {
-    const recipesSection = document.getElementById("recipes-section");
     recipesSection.innerHTML = "";
 
     recipesList.forEach(recipe => {

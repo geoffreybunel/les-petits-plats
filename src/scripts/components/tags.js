@@ -1,8 +1,12 @@
+import { recipesFilter } from '../utils/filterRecipes.js';
+
 const tagsSection = document.getElementById("tags-section");
-const addedTags = new Set(); //items already added
+export const selectedIngredients = new Set(); //Ingredients already added
+export const selectedAppliances = new Set(); //Appliances already added
+export const selectedUstensils = new Set(); //Ustensils already added
 
 export function tagCard(tagName) {
-    if (addedTags.has(tagName)) {
+    if (selectedIngredients.has(tagName)) {
         console.log(tagName, "a déjà été ajouté");
         return
     }
@@ -22,13 +26,16 @@ export function tagCard(tagName) {
     
     tagsSection.append(tag);
 
-    addedTags.add(tagName);
+    selectedIngredients.add(tagName);
+    recipesFilter();
+    console.log(selectedIngredients);
 
     // Remove tags
     const removeTag = tag.querySelector(".remove-tag");
     removeTag.addEventListener("click", () => {
         tag.remove();
-        addedTags.delete(tagName);
+        selectedIngredients.delete(tagName);
+        recipesFilter();
     })
 }
 
@@ -39,6 +46,7 @@ export function displayTags() {
         item.addEventListener("click", () => {
             const tagName = item.textContent.trim();
             tagCard(tagName); // update Set
+            recipesFilter();
         });
     });
 }
