@@ -5,9 +5,12 @@ import { displayTags } from '../components/tags.js';
 import { filterListItems } from '../utils/listSearchBarInput.js';
 
 export default function Home() {
-    dropdown();
-    displayLists();
-    displayRecipes(recipes);
-    displayTags();
-    filterListItems();
+  // const totalRecipes = document.getElementById("total-recipes");
+  // totalRecipes.innerHTML = `${filteredRecipes}`;
+
+  dropdown();
+  displayLists();
+  displayRecipes(recipes);
+  displayTags();
+  filterListItems();
   }

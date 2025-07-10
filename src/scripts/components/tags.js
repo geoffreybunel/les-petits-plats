@@ -46,7 +46,6 @@ export function displayTags() {
         item.addEventListener("click", () => {
             const tagName = item.textContent.trim();
             tagCard(tagName); // update Set
-            recipesFilter();
         });
     });
 }

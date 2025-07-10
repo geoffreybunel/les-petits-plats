@@ -21,12 +21,14 @@ export function dropdown() {
     });
 }
 
+export const ingredientsList = document.getElementById('ingredientsList');
+export const applianceList = document.getElementById('applianceList');
+export const ustensilsList = document.getElementById('ustensilsList');
+
 export function displayLists() {
     // Display ingredients
-    const ingredientsList = document.getElementById('ingredientsList');
-
     const allIngredients = getAllIngredients();
-    let sortedIngredients = allIngredients.sort();
+    const sortedIngredients = allIngredients.sort();
 
     sortedIngredients.forEach(ingredient => {
         const li = document.createElement('li');
@@ -36,10 +38,8 @@ export function displayLists() {
     });
 
     // Display appliance
-    const applianceList = document.getElementById('applianceList');
-
     const allAppliances = getAllAppliance();
-    let sortedAppliance = allAppliances.sort();
+    const sortedAppliance = allAppliances.sort();
 
     sortedAppliance.forEach(appliance => {
         const li = document.createElement('li');
@@ -49,10 +49,8 @@ export function displayLists() {
     });
 
     // Display ustensils
-    const ustensilsList = document.getElementById('ustensilsList');
-
     const allUstensils = getAllUstensils();
-    let sortedUstensils = allUstensils.sort();
+    const sortedUstensils = allUstensils.sort();
 
     sortedUstensils.forEach(utensil => {
         const li = document.createElement('li');
