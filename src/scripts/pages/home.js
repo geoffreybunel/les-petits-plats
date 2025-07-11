@@ -5,9 +5,6 @@ import { displayTags } from '../components/tags.js';
 import { filterListItems } from '../utils/listSearchBarInput.js';
 
 export default function Home() {
-  // const totalRecipes = document.getElementById("total-recipes");
-  // totalRecipes.innerHTML = `${filteredRecipes}`;
-
   dropdown();
   displayLists();
   displayRecipes(recipes);

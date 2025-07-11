@@ -4,15 +4,13 @@ import { displayRecipes } from "../components/recipeCard.js";
 import { selectedIngredients, selectedAppliances, selectedUstensils, displayTags } from "../components/tags.js";
 
 export function recipesFilter() {
-    const selectedTags = [...selectedIngredients];
+    const selectedTags = [...selectedIngredients, ...selectedAppliances, ...selectedUstensils];
     // .filter go through all the recipes and ...
     const filteredRecipes = recipes.filter(recipe => {
         // Recipe's ingredients
         const ingredientsNames = recipe.ingredients.map(i => i.ingredient.toLowerCase());
-
         // Recipe's appliances
         const applianceName = recipe.appliance.toLowerCase();
-
         // Recipe's ustensils
         const ustensilsNames = recipe.ustensils.map(u => u.toLowerCase());    
 
@@ -53,6 +51,9 @@ export function recipesFilter() {
     const availableIngredientsArray = Array.from(availableIngredients).sort();
     const availableAppliancesArray = Array.from(availableAppliances).sort();
     const availableUstensilsArray = Array.from(availableUstensils).sort();
+
+    const totalRecipesSection = document.getElementById("total-recipes");
+    totalRecipesSection.innerHTML = `${filteredRecipes.length} recettes`;
 
     updateFilterLists(availableIngredientsArray, availableAppliancesArray, availableUstensilsArray);
     // Display the filtered recipes
