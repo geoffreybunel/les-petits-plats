@@ -4,7 +4,7 @@ import { displayRecipes } from "../components/recipeCard.js";
 import { selectedIngredients, selectedAppliances, selectedUstensils, displayTags } from "../components/tags.js";
 
 export function recipesFilter() {
-    const selectedTags = [...selectedIngredients, ...selectedAppliances, ...selectedUstensils];
+    const selectedTags = [...selectedIngredients];
     // .filter go through all the recipes and ...
     const filteredRecipes = recipes.filter(recipe => {
         // Recipe's ingredients

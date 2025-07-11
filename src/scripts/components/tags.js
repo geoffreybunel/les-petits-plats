@@ -5,12 +5,25 @@ export const selectedIngredients = new Set(); //Ingredients already added
 export const selectedAppliances = new Set(); //Appliances already added
 export const selectedUstensils = new Set(); //Ustensils already added
 
-export function tagCard(tagName) {
-    if (selectedIngredients.has(tagName)) {
-        console.log(tagName, "a déjà été ajouté");
+export function tagCard(tagName, type) {
+    let tagSet;
+
+    if (type === "ingredient") {
+        tagSet = selectedIngredients;
+    } else if (type === "appliance") {
+        tagSet = selectedAppliances;
+    } else if (type === "ustensil") {
+        tagSet = selectedUstensils;
+    }
+
+    if (tagSet.has(tagName)) {
         return
     }
 
+    tagSet.add(tagName);
+
+    // console.log(tagSet);
+    
     // Create tag card
     const tag = document.createElement("div");
     tag.className = "rounded-xl h-full bg-primary shadow-md overflow-hidden max-w-[380px]";
@@ -26,17 +39,16 @@ export function tagCard(tagName) {
     
     tagsSection.append(tag);
 
-    selectedIngredients.add(tagName);
-    recipesFilter();
-    console.log(selectedIngredients);
-
     // Remove tags
     const removeTag = tag.querySelector(".remove-tag");
     removeTag.addEventListener("click", () => {
         tag.remove();
-        selectedIngredients.delete(tagName);
-        recipesFilter();
+        tagSet.delete(tagName);
+        recipesFilter(); // filter again
     })
+
+    // display filtered recipes
+    recipesFilter();
 }
 
 export function displayTags() {
@@ -45,7 +57,8 @@ export function displayTags() {
     listItems.forEach(item => {
         item.addEventListener("click", () => {
             const tagName = item.textContent.trim();
-            tagCard(tagName); // update Set
+            const type = item.closest("ul").dataset.type; // get the tag's type
+            tagCard(tagName, type); // update Set
         });
     });
 }
