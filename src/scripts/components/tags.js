@@ -1,4 +1,4 @@
-import { recipesFilter } from '../utils/filterRecipes.js';
+import { mainSearchBar } from '../utils/mainSearchBar.js';
 
 const tagsSection = document.getElementById("tags-section");
 export const selectedIngredients = new Set(); //Ingredients already added
@@ -39,16 +39,18 @@ export function tagCard(tagName, type) {
     
     tagsSection.append(tag);
 
+    // display filtered recipes
+    mainSearchBar();
+
     // Remove tags
     const removeTag = tag.querySelector(".remove-tag");
     removeTag.addEventListener("click", () => {
         tag.remove();
         tagSet.delete(tagName);
-        recipesFilter(); // filter again
+        mainSearchBar(); // filter again
     })
 
-    // display filtered recipes
-    recipesFilter();
+
 }
 
 export function displayTags() {
