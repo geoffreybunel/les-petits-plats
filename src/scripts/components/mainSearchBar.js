@@ -1,7 +1,5 @@
 import { recipes } from "../../data/recipes.js";
-import { displayRecipes } from "../components/recipeCard.js";
-import { getFilteredRecipes } from "./filter.js";
-import { updateUI } from "./ui.js";
+import { displayRecipes } from "./recipeCard.js";
 
 export function mainSearchBar() {
     const searchBar = document.getElementById("search");
@@ -26,9 +24,4 @@ export function mainSearchBar() {
             displayRecipes(recipes);
         }
     });
-}
-
-export function filterAllRecipes(searchValue) {
-    const filteredRecipes = getFilteredRecipes(searchValue);
-    updateUI(filteredRecipes);
 }

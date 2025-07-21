@@ -4,7 +4,7 @@ import { displayRecipes } from '../components/recipeCard.js';
 import { displayTags } from '../components/tags.js';
 import { filterListItems } from '../utils/listSearchBarInput.js';
 import { filterTags } from '../utils/tags.js';
-import { mainSearchBar } from '../utils/mainSearchBar.js';
+import { mainSearchBar } from '../components/mainSearchBar.js';
 
 
 
