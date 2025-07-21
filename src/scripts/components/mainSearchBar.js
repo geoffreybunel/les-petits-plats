@@ -1,5 +1,4 @@
-import { recipes } from "../../data/recipes.js";
-import { displayRecipes } from "./recipeCard.js";
+import { filterAllRecipes } from "../utils/filter.js";
 
 export function mainSearchBar() {
     const searchBar = document.getElementById("search");
@@ -9,6 +8,7 @@ export function mainSearchBar() {
     eraseBtn.addEventListener("click", () => {
         searchBar.value = "";
         eraseBtn.style.display = "none";
+        filterAllRecipes(searchValue);
     });
 
     // Everytime we type in the input ...
@@ -17,11 +17,6 @@ export function mainSearchBar() {
         // Display delete icon if searchbar's length > 0
         eraseBtn.style.display = searchValue.length > 0 ? "" : "none";
 
-        //if input value >= 3 characters.. => filter the recipes
-        if (searchValue.length >= 3) {
-            filterAllRecipes(searchValue);
-        } else {
-            displayRecipes(recipes);
-        }
+        filterAllRecipes(searchValue);
     });
 }

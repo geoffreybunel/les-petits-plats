@@ -1,5 +1,4 @@
 import { recipesSection, displayRecipes } from "../components/recipeCard.js";
-import { updateTagsLists } from "./tags.js";
 import { applianceList, ingredientsList, ustensilsList } from "../components/listsDropdown.js";
 import { selectedIngredients, selectedAppliances, selectedUstensils, displayTags } from "../components/tags.js";
 
@@ -34,6 +33,7 @@ export function updateUI(filteredRecipes) {
 
     const totalRecipesSection = document.getElementById("total-recipes");
     totalRecipesSection.innerHTML = `${filteredRecipes.length} recettes`;
+
 
     recipesSection.innerHTML = "";
     updateTagsLists(availableIngredientsArray, availableAppliancesArray, availableUstensilsArray);

@@ -31,12 +31,11 @@ export function filterSearchBar(searchValue) {
 }
 
 
-
 // * Filter Tags
-export function getFilteredRecipesByTags(filteredRecipesBySearchBar) {
+export function getFilteredRecipesByTags() {
     const selectedTags = [...selectedIngredients, ...selectedAppliances, ...selectedUstensils];
     
-    return filteredRecipesBySearchBar.filter(recipe => {
+    return recipes.filter(recipe => {
         const ingredientsNames = recipe.ingredients.map(i => i.ingredient.toLowerCase());
         const applianceName = recipe.appliance.toLowerCase();
         const ustensilsNames = recipe.ustensils.map(u => u.toLowerCase());
@@ -55,4 +54,33 @@ export function getFilteredRecipesByTags(filteredRecipesBySearchBar) {
 export function filterTags() {
     const filteredRecipesByTags = getFilteredRecipesByTags()
     updateUI(filteredRecipesByTags);
+}
+
+// Combine both filters functions
+export function filterAllRecipes(searchValue) {
+    let filteredRecipes = recipes;
+
+    if (searchValue?.length >= 3) {
+        filteredRecipes = getFilteredRecipesBySearchBar(searchValue);
+    }
+
+    const selectedTags = [...selectedIngredients, ...selectedAppliances, ...selectedUstensils];
+
+    if (selectedTags.length > 0) {
+        filteredRecipes = filteredRecipes.filter(recipe => {
+            const ingredientsNames = recipe.ingredients.map(i => i.ingredient.toLowerCase());
+            const applianceName = recipe.appliance.toLowerCase();
+            const ustensilsNames = recipe.ustensils.map(u => u.toLowerCase());
+    
+            return selectedTags.every(tag => 
+                ingredientsNames.includes(tag.toLowerCase()) ||
+                applianceName.includes(tag.toLowerCase()) ||
+                ustensilsNames.includes(tag.toLowerCase())
+            );
+
+        });
+    }
+    // console.log("🔎 Appel de filterAllRecipes avec :", searchValue);
+
+    updateUI(filteredRecipes);
 }

@@ -1,6 +1,7 @@
-import { filterTags } from '../utils/tags.js';
+import { filterAllRecipes } from '../utils/filter.js';
 
 const tagsSection = document.getElementById("tags-section");
+
 export const selectedIngredients = new Set(); //Ingredients already added
 export const selectedAppliances = new Set(); //Appliances already added
 export const selectedUstensils = new Set(); //Ustensils already added
@@ -21,7 +22,6 @@ export function tagCard(tagName, type) {
     }
 
     tagSet.add(tagName);
-
     // console.log(tagSet);
     
     // Create tag card
@@ -40,17 +40,17 @@ export function tagCard(tagName, type) {
     tagsSection.append(tag);
 
     // display filtered recipes
-    filterTags();
+    const searchInput = document.getElementById("search");
+    const searchValue = searchInput.value.trim().toLowerCase();
+    filterAllRecipes(searchValue);
 
     // Remove tags
     const removeTag = tag.querySelector(".remove-tag");
     removeTag.addEventListener("click", () => {
         tag.remove();
         tagSet.delete(tagName);
-        filterTags(); // filter again
+        filterAllRecipes(searchValue); // filter again
     })
-
-
 }
 
 export function displayTags() {
