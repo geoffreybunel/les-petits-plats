@@ -25,38 +25,33 @@ export function getFilteredRecipesBySearchBar(searchValue) {
 
 export function filterSearchBar(searchValue) {
     const filteredRecipesBySearchBar = getFilteredRecipesBySearchBar(searchValue);
-    updateUI(filteredRecipesBySearchBar);
+    updateUI(filteredRecipesBySearchBar, searchValue);
 
     return filteredRecipesBySearchBar;
 }
 
 
 // * Filter Tags
-export function getFilteredRecipesByTags() {
-    const selectedTags = [...selectedIngredients, ...selectedAppliances, ...selectedUstensils];
+// export function getFilteredRecipesByTags() {
+//     const selectedTags = [...selectedIngredients, ...selectedAppliances, ...selectedUstensils];
     
-    return recipes.filter(recipe => {
-        const ingredientsNames = recipe.ingredients.map(i => i.ingredient.toLowerCase());
-        const applianceName = recipe.appliance.toLowerCase();
-        const ustensilsNames = recipe.ustensils.map(u => u.toLowerCase());
+//     return recipes.filter(recipe => {
+//         const ingredientsNames = recipe.ingredients.map(i => i.ingredient.toLowerCase());
+//         const applianceName = recipe.appliance.toLowerCase();
+//         const ustensilsNames = recipe.ustensils.map(u => u.toLowerCase());
 
-        // Check if tags are in the ingredients/appliances/ustensils names
-        const hasAllTags = selectedTags.every(tag => 
-            ingredientsNames.includes(tag.toLowerCase()) ||
-            applianceName.includes(tag.toLowerCase()) ||
-            ustensilsNames.includes(tag.toLowerCase())
-        );
+//         // Check if tags are in the ingredients/appliances/ustensils names
+//         const hasAllTags = selectedTags.every(tag => 
+//             ingredientsNames.includes(tag.toLowerCase()) ||
+//             applianceName.includes(tag.toLowerCase()) ||
+//             ustensilsNames.includes(tag.toLowerCase())
+//         );
         
-        return hasAllTags;
-    });
-}
+//         return hasAllTags;
+//     });
+// }
 
-export function filterTags() {
-    const filteredRecipesByTags = getFilteredRecipesByTags()
-    updateUI(filteredRecipesByTags);
-}
-
-// Combine both filters functions
+// * Combine both filters functions
 export function filterAllRecipes(searchValue) {
     let filteredRecipes = recipes;
 
@@ -82,5 +77,5 @@ export function filterAllRecipes(searchValue) {
     }
     // console.log("🔎 Appel de filterAllRecipes avec :", searchValue);
 
-    updateUI(filteredRecipes);
+    updateUI(filteredRecipes, searchValue);
 }

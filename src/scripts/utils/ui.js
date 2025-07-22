@@ -2,7 +2,7 @@ import { recipesSection, displayRecipes } from "../components/recipeCard.js";
 import { applianceList, ingredientsList, ustensilsList } from "../components/listsDropdown.js";
 import { selectedIngredients, selectedAppliances, selectedUstensils, displayTags } from "../components/tags.js";
 
-export function updateUI(filteredRecipes) {
+export function updateUI(filteredRecipes, searchValue) {
     // Create new sets for items available in recipes displayed
     const availableIngredients = new Set();
     const availableAppliances = new Set();
@@ -36,8 +36,16 @@ export function updateUI(filteredRecipes) {
 
 
     recipesSection.innerHTML = "";
-    updateTagsLists(availableIngredientsArray, availableAppliancesArray, availableUstensilsArray);
-    displayRecipes(filteredRecipes);
+    if (filteredRecipes.length === 0) {
+        recipesSection.classList.remove("grid", "grid-cols-3", "gap-5");
+        recipesSection.innerHTML = `
+            <h2 class="font-bold">Aucune recette ne contient ‘${searchValue}’ vous pouvez chercher «tarte aux pommes », « poisson », etc...</h2>
+        `;
+    } else {
+        recipesSection.classList.add("grid", "grid-cols-3", "gap-5");
+        updateTagsLists(availableIngredientsArray, availableAppliancesArray, availableUstensilsArray);
+        displayRecipes(filteredRecipes);
+    }
 }
 
 export function updateTagsLists(availableIngredients, availableAppliances, availableUstensils) {
