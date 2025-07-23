@@ -23,14 +23,6 @@ export function getFilteredRecipesBySearchBar(searchValue) {
     });
 }
 
-export function filterSearchBar(searchValue) {
-    const filteredRecipesBySearchBar = getFilteredRecipesBySearchBar(searchValue);
-    updateUI(filteredRecipesBySearchBar, searchValue);
-
-    return filteredRecipesBySearchBar;
-}
-
-
 // * Filter Tags
 // export function getFilteredRecipesByTags() {
 //     const selectedTags = [...selectedIngredients, ...selectedAppliances, ...selectedUstensils];

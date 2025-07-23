@@ -49,7 +49,8 @@ export function tagCard(tagName, type) {
     removeTag.addEventListener("click", () => {
         tag.remove();
         tagSet.delete(tagName);
-        filterAllRecipes(searchValue); // filter again
+        const currentSearch = document.getElementById("search").value.trim().toLowerCase();
+        filterAllRecipes(currentSearch); // filter again
     })
 }
 
