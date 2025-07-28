@@ -8,7 +8,7 @@ export function mainSearchBar() {
     eraseBtn.addEventListener("click", () => {
         searchBar.value = "";
         eraseBtn.style.display = "none";
-        filterAllRecipes(searchValue);
+        filterAllRecipes();
     });
 
     // Everytime we type in the input ...
