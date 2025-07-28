@@ -1,29 +1,8 @@
-import { recipes } from "../../data/recipes.js";
+import { recipesSection, displayRecipes } from "../components/recipeCard.js";
 import { applianceList, ingredientsList, ustensilsList } from "../components/listsDropdown.js";
-import { displayRecipes } from "../components/recipeCard.js";
 import { selectedIngredients, selectedAppliances, selectedUstensils, displayTags } from "../components/tags.js";
 
-export function recipesFilter() {
-    const selectedTags = [...selectedIngredients, ...selectedAppliances, ...selectedUstensils];
-    // .filter go through all the recipes and ...
-    const filteredRecipes = recipes.filter(recipe => {
-        // Recipe's ingredients
-        const ingredientsNames = recipe.ingredients.map(i => i.ingredient.toLowerCase());
-        // Recipe's appliances
-        const applianceName = recipe.appliance.toLowerCase();
-        // Recipe's ustensils
-        const ustensilsNames = recipe.ustensils.map(u => u.toLowerCase());    
-
-        // Check if tags are in the ingredients/appliances/ustensils names
-        const hasAllTags = selectedTags.every(tag => 
-            ingredientsNames.includes(tag.toLowerCase()) ||
-            applianceName.includes(tag.toLowerCase()) ||
-            ustensilsNames.includes(tag.toLowerCase())
-        );
-
-        return hasAllTags;
-    });
-
+export function updateUI(filteredRecipes, searchValue) {
     // Create new sets for items available in recipes displayed
     const availableIngredients = new Set();
     const availableAppliances = new Set();
@@ -55,12 +34,21 @@ export function recipesFilter() {
     const totalRecipesSection = document.getElementById("total-recipes");
     totalRecipesSection.innerHTML = `${filteredRecipes.length} recettes`;
 
-    updateFilterLists(availableIngredientsArray, availableAppliancesArray, availableUstensilsArray);
-    // Display the filtered recipes
-    displayRecipes(filteredRecipes);
+
+    recipesSection.innerHTML = "";
+    if (filteredRecipes.length === 0) {
+        recipesSection.classList.remove("grid", "grid-cols-3", "gap-5");
+        recipesSection.innerHTML = `
+            <h2 class="font-bold">Aucune recette ne contient ‘${searchValue}’ vous pouvez chercher «tarte aux pommes », « poisson », etc...</h2>
+        `;
+    } else {
+        recipesSection.classList.add("grid", "grid-cols-3", "gap-5");
+        updateTagsLists(availableIngredientsArray, availableAppliancesArray, availableUstensilsArray);
+        displayRecipes(filteredRecipes);
+    }
 }
 
-export function updateFilterLists(availableIngredients, availableAppliances, availableUstensils) {
+export function updateTagsLists(availableIngredients, availableAppliances, availableUstensils) {
     ingredientsList.innerHTML = "";
     availableIngredients.forEach(ingredient => {
         const li = document.createElement('li');

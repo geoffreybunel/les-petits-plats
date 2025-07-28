@@ -18,9 +18,12 @@
                 <h1 class="font-title font-extrabold text-primary text-5xl tracking-wide leading-18">CHERCHEZ PARMI PLUS DE 1500 RECETTES <br> DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
                 <div class="mt-6 w-full flex relative">
                     <input type="text" name="search" id="search" placeholder="Rechercher une recette, un ingrédient, ..." class="w-full bg-white outline-none p-4 rounded-xl text-tertiary text-lg">
-                    <button class="bg-secondary text-white p-4 rounded-xl hover:bg-primary hover:text-secondary absolute right-1 h-[52px] w-[52px] mt-1 mb-1">
-                        <i class="fa-solid fa-magnifying-glass text-2xl"></i>
-                    </button>
+                    <div class="absolute right-1 flex gap-5">
+                        <img src="../src/assets/icons/deleteMainSearch.svg" alt="erase button" id="erase-button" class="cursor-pointer"/>
+                        <button class="bg-secondary text-white p-4 rounded-xl hover:bg-primary hover:text-secondary h-[52px] w-[52px] mt-1 mb-1 cursor-pointer">
+                            <i class="fa-solid fa-magnifying-glass text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>

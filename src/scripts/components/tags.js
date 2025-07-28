@@ -1,6 +1,7 @@
-import { recipesFilter } from '../utils/filterRecipes.js';
+import { filterAllRecipes } from '../utils/filter.js';
 
 const tagsSection = document.getElementById("tags-section");
+
 export const selectedIngredients = new Set(); //Ingredients already added
 export const selectedAppliances = new Set(); //Appliances already added
 export const selectedUstensils = new Set(); //Ustensils already added
@@ -21,34 +22,55 @@ export function tagCard(tagName, type) {
     }
 
     tagSet.add(tagName);
-
     // console.log(tagSet);
     
+        // tag.innerHTML = `
+    //     <div class="relative p-3">
+    //         <span class="pr-4">${tagName}</span>
+    //         <button class="remove-tag cursor-pointer" data-tag="${tagName}">
+    //             <img src="../src/assets/icons/removeTag.svg" alt="close icon" class="absolute right-3 top-[19px]"/>
+    //         </button>
+    //     </div>
+    // `;
+
     // Create tag card
     const tag = document.createElement("div");
     tag.className = "rounded-xl h-full bg-primary shadow-md overflow-hidden max-w-[380px]";
 
-    tag.innerHTML = `
-        <div class="relative p-3">
-            <span class="pr-4">${tagName}</span>
-            <button class="remove-tag cursor-pointer" data-tag="${tagName}">
-                <img src="../src/assets/icons/removeTag.svg" alt="close icon" class="absolute right-3 top-[19px]"/>
-            </button>
-        </div>
-    `;
-    
+    const tagContent = document.createElement("div");
+    tagContent.className = "relative p-3";
+
+    const tagSpan = document.createElement("span");
+    tagSpan.className = "pr-4"
+    tagSpan.textContent = tagName;
+
+    const tagButton = document.createElement("button");
+    tagButton.className = "remove-tag cursor-pointer";
+    tagButton.dataset.tag = tagName;
+
+    const tagCloseIcon = document.createElement("img");
+    tagCloseIcon.className = "absolute right-3 top-[19px]";
+    tagCloseIcon.src = "../src/assets/icons/removeTag.svg"
+    tagCloseIcon.alt = "close icon";
+
+    tagButton.append(tagCloseIcon);
+    tagContent.append(tagSpan, tagButton);
+    tag.append(tagContent);
     tagsSection.append(tag);
+
+    // display filtered recipes
+    const searchInput = document.getElementById("search");
+    const searchValue = searchInput.value.trim().toLowerCase();
+    filterAllRecipes(searchValue);
 
     // Remove tags
     const removeTag = tag.querySelector(".remove-tag");
     removeTag.addEventListener("click", () => {
         tag.remove();
         tagSet.delete(tagName);
-        recipesFilter(); // filter again
+        const currentSearch = document.getElementById("search").value.trim().toLowerCase();
+        filterAllRecipes(currentSearch); // filter again
     })
-
-    // display filtered recipes
-    recipesFilter();
 }
 
 export function displayTags() {
