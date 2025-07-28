@@ -5,22 +5,45 @@ import { updateUI } from "./ui.js";
 // * Filter Search
 export function getFilteredRecipesBySearchBar(searchValue) {
 
-    return recipes.filter(recipe => {
-        const recipesNames = recipe.name.toLowerCase();
-        const recipesDescription = recipe.description.toLowerCase();
-        const ingredientsNames = recipe.ingredients.map(i => i.ingredient.toLowerCase());
-        const applianceName = recipe.appliance.toLowerCase();
-        const ustensilsNames = recipe.ustensils.map(u => u.toLowerCase());
+    let filteredRecipes = [];
+    for (let i = 0; i < recipes.length; i++) {
+        const recipesNames = recipes[i].name.toLowerCase();
+
+        const recipesDescription = recipes[i].description.toLowerCase();
+
+        let foundIngredients = false;
+        for (let j = 0; j < recipes[i].ingredients.length; j++) {
+            const ing = recipes[i].ingredients[j].ingredient.toLowerCase();
+            if (ing.includes(searchValue)) {
+                foundIngredients = true;
+                break;
+            }
+        }
+
+        const applianceName = recipes[i].appliance.toLowerCase();
+
+        let foundUstensils = false;
+        for (let k = 0; k < recipes[i].ustensils.length; k++) {
+            const ust = recipes[i].ustensils[k].toLowerCase();
+            if (ust.includes(searchValue)) {
+                foundUstensils = true;
+                break;
+            }   
+        }
 
         const hasSearchValue = (searchValue.length < 3) || (
             recipesNames.includes(searchValue) ||
             recipesDescription.includes(searchValue) ||
-            ingredientsNames.some(ingredient => ingredient.includes(searchValue)) ||
+            foundIngredients ||
             applianceName.includes(searchValue) ||
-            ustensilsNames.some(ustensil => ustensil.includes(searchValue)));
+            foundUstensils);
         
-        return hasSearchValue;
-    });
+        if (hasSearchValue) {
+            filteredRecipes.push(recipes[i]);
+        }
+    }
+
+    return filteredRecipes;
 }
 
 // * Filter Tags
