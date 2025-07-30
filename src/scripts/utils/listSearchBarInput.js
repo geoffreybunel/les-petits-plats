@@ -1,4 +1,4 @@
-const filtersInput = document.querySelectorAll(".filter-search-input");
+export const filtersInput = document.querySelectorAll(".filter-search-input");
 const deleteIcon = document.querySelectorAll(".delete-icon");
 
 export function filterListItems(listElement, searchValue) {
@@ -28,7 +28,7 @@ filtersInput.forEach((input, index) => {
 
         // Display delete icon if searchbar's length > 0
         icon.style.display = searchValue.length > 0 ? "" : "none";
-        console.log("Filtrage:", type, list);
+        // console.log("Filtrage:", type, list);
 
         // filter the search
         filterListItems(list, searchValue);
