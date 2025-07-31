@@ -4,7 +4,7 @@ import { updateUI } from "./ui.js";
 
 // * Filter Search
 export function getFilteredRecipesBySearchBar(searchValue) {
-
+    searchValue = searchValue.toLowerCase();
     const filteredRecipes = [];
     for (let i = 0; i < recipes.length; i++) {
         const recipesNames = recipes[i].name.toLowerCase();
@@ -18,6 +18,20 @@ export function getFilteredRecipesBySearchBar(searchValue) {
                 foundIngredients = true;
                 break;
             }
+            // for (let k = 0; k <= ing.length - searchValue.length; k++) {
+            //     let match = true;
+            //     for (let l = 0; l < searchValue.length; l++) {
+            //         if (ing[k + l] !== searchValue[l]) {
+            //             match = false;
+            //             break;
+            //         }
+            //     }
+            //     if (match) {
+            //         foundIngredients = true;
+            //         break;
+            //     }
+            
+            // }
         }
 
         const applianceName = recipes[i].appliance.toLowerCase();
@@ -28,16 +42,16 @@ export function getFilteredRecipesBySearchBar(searchValue) {
             if (ust.includes(searchValue)) {
                 foundUstensils = true;
                 break;
-            }   
+            }
         }
-
+        
         const hasSearchValue = (searchValue.length < 3) || (
             recipesNames.includes(searchValue) ||
             recipesDescription.includes(searchValue) ||
             foundIngredients ||
             applianceName.includes(searchValue) ||
             foundUstensils);
-        
+
         if (hasSearchValue) {
             filteredRecipes.push(recipes[i]);
         }
