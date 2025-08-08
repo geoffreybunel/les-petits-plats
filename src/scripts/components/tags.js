@@ -1,4 +1,5 @@
 import { filterAllRecipes } from '../utils/filter.js';
+import { filtersInput } from '../utils/listSearchBarInput.js';
 
 const tagsSection = document.getElementById("tags-section");
 
@@ -81,6 +82,12 @@ export function displayTags() {
             const tagName = item.textContent.trim();
             const type = item.closest("ul").dataset.type; // get the tag's type
             tagCard(tagName, type); // update Set
+
+            // For each filter's input
+            filtersInput.forEach(input => {
+                input.value = "";
+                input.dispatchEvent(new Event("input")); // restart filter
+            })
         });
     });
 }
