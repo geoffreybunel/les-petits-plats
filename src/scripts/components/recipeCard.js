@@ -5,7 +5,7 @@ export function displayRecipes(recipesList) {
 
     recipesList.forEach(recipe => {
         const recipeCard = document.createElement("article");
-        recipeCard.className = "rounded-xl h-full bg-white shadow-md overflow-hidden max-w-[380px]";
+        recipeCard.className = "rounded-xl h-full bg-white shadow-md overflow-hidden";
 
         recipeCard.innerHTML = `
             <div class="relative">

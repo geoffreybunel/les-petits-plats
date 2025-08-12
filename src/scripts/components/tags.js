@@ -39,7 +39,7 @@ export function tagCard(tagName, type) {
     tag.className = "rounded-xl h-full bg-primary shadow-md overflow-hidden max-w-[380px]";
 
     const tagContent = document.createElement("div");
-    tagContent.className = "relative p-3";
+    tagContent.className = "flex justify-between items-center p-3";
 
     const tagSpan = document.createElement("span");
     tagSpan.className = "pr-4"
@@ -50,7 +50,7 @@ export function tagCard(tagName, type) {
     tagButton.dataset.tag = tagName;
 
     const tagCloseIcon = document.createElement("img");
-    tagCloseIcon.className = "absolute right-3 top-[19px]";
+    tagCloseIcon.className = "right-3 top-[19px]";
     tagCloseIcon.src = "../src/assets/icons/removeTag.svg"
     tagCloseIcon.alt = "close icon";
 
