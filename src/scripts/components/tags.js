@@ -83,11 +83,12 @@ export function displayTags() {
             const type = item.closest("ul").dataset.type; // get the tag's type
             tagCard(tagName, type); // update Set
 
-            // For each filter's input
-            filtersInput.forEach(input => {
-                input.value = "";
-                input.dispatchEvent(new Event("input")); // restart filter
-            })
+            // Clear input
+            const inputClear = Array.from(filtersInput).find(input => input.dataset.type === type);
+            if (inputClear) {
+                inputClear.value = "";
+                inputClear.dispatchEvent(new Event("input"));
+            }
         });
     });
 }
