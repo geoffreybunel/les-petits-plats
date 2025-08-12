@@ -21,9 +21,9 @@ export function dropdown() {
     });
 }
 
-export const ingredientsList = document.getElementById('ingredientsList');
+export const ingredientsList = document.getElementById('ingredientList');
 export const applianceList = document.getElementById('applianceList');
-export const ustensilsList = document.getElementById('ustensilsList');
+export const ustensilsList = document.getElementById('ustensilList');
 
 export function displayLists() {
     // Display ingredients
